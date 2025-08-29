@@ -1,0 +1,8 @@
+package com.aclass.practice.insert;
+
+public class EmployeeInsert {
+	public static void main(String[] args) {
+		
+	}
+
+}
