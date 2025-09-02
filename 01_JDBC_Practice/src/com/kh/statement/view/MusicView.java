@@ -1,8 +1,10 @@
 package com.kh.statement.view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import com.kh.statement.controller.MusicController;
+import com.kh.statement.model.vo.Music;
 
 public class MusicView {
 	// View -> Controller -> Dao 로 보낸다
@@ -38,37 +40,73 @@ public class MusicView {
 			sc.nextLine();
 			
 			switch(menuNo) {
-			case 1 : PlusMusic();break;
-			case 2 : break;
+			case 1 : plusMusic();break;
+			case 2 : findAll();break;
 			case 3 : break;
 			case 4 : break;
 			case 5 : break;
 			case 6 : break;
 			case 7 : break;
 			case 9 : System.out.println("프로그램을 종료합니다."); return;
+			default : System.out.println("잘못된 메뉴 선택입니다.");
 			
 			}
 			
 		}
 		
 	}
+	/**
+	 * Music 테이블에 ISERT할 값을 사용자가 입력받는 화면 출력
+	 * 
+	 * 컬럼에 INSERT할 값들을 모두 입력받은 후 입력받은 값 컨트롤러로 전달
+	 */
 	public void plusMusic() {
-		System.out.println("음악 추가하기");
-		System.out.println("음악의 이름을 입력해주세요 > ");
-		System.out.println("가수의 이름을 입력해주세요");
-		System.out.println("장르를 입력해주세요");
-		System.out.println("재생시간을 입력해주세요 예) 5분30초 > ")
-		/*
-		 * 음악번호(int)
-		 * 음악이름(String)
-			가수이름(String)
-			장르(String)
-			재생시간(String / 5:45)
-			앨범판매수(inst)
-			발매일(date)
-		 */
+		System.out.println("==== 음악 추가 ====");
 		
-		int result = new mc.plusMusic();
+		System.out.println("음악의 이름을 입력해주세요 > ");
+		String musicName = sc.nextLine();
+		System.out.println("가수의 이름을 입력해주세요");
+		String singer = sc.nextLine();
+		System.out.println("장르를 입력해주요");
+		String genre = sc.nextLine();
+		System.out.println("재생시간을 입력해주세요 예) 5분30초 > ");
+		String playTime = sc.nextLine();
+		System.out.println("앨범 판매수를 입력해주세요");
+		int albumSell = sc.nextInt();
+		sc.nextLine();
+		System.out.print("발매 날짜를 입력해주세요 (예: 2021-05-17) > ");
+		String releaseDate = sc.nextLine();
+		
+		int result = mc.plusMusic(musicName, singer, genre, playTime, albumSell, releaseDate);
+		
+		if(result > 0 ) {
+			System.out.println("음악추가에 성공했습니다.");
+		} else {
+			System.out.println("음악추가에 실패하였습니다.");
+		}
+		
+	}
+	public void findAll() {
+		
+		System.out.println("\n === 전체 음악 조회 === ");
+		List<Music> musics = mc.findAll();
+		
+		System.out.println("\n조회된 총 음악수는 " + musics.size() + "입니다.");
+		if(musics.isEmpty()) {
+			System.out.println("조회결과가 존재하지않습니다.");
+		} else {
+			for(Music music : musics) {
+				System.out.println("=====================================");
+				System.out.println(music.getMusicNum() + "번 음악");
+				System.out.println("음악"+ music.getMusicName() + ", ");
+				System.out.println("가수" + music.getSingerName() + ", ");
+				System.out.println("장르" + music.getGenreName() + ", ");
+				System.out.println("재생시간"+ music.getPlayTime() + ", ");
+				System.out.println("앨범 총판매수(집계되지않으면 0)"+ music.getAlbumSell() + ", ");
+				System.out.println("앨범(노래) 발매일" + music.getReleaseDate() + ", ");
+				System.out.println("=====================================");
+			}
+		}
 	}
 	
 	

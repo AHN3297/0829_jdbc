@@ -2,6 +2,7 @@ package com.kh.statement.controller;
 
 
 
+import java.sql.Connection;
 import java.util.List;
 
 import com.kh.statement.model.dao.MemberDao;
@@ -57,7 +58,7 @@ public class MemberController {
 		
 		// 1. 데이터 가공 => 넘어가
 		// 2. 요청처리 => DAO객체 생성후 메소드 호출
-		Member member = new MemberDao().findById(userId);
+		Member member = new MemberDao().finById(userId);
 		
 		return member;
 	}
@@ -98,5 +99,7 @@ public class MemberController {
 		return result;
 		
 	}
+	
+	
 	
  }

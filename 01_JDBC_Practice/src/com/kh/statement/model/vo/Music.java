@@ -6,30 +6,30 @@ import java.util.Objects;
 public class Music {
 	private int musicNum; //MUSIC_NUM NUMBER  PRIMARY KEY,
 	private String musicName; //MUSIC_NAME VARCHAR2(50) NOT NULL,
-	private String sigerName; //SINGER_NAME VARCHAR2(50) NOT NULL,
+	private String singerName; //SINGER_NAME VARCHAR2(50) NOT NULL,
 	private String genreName; //GENRE_NAME VARCHAR2(20)NOT NULL,
 	private String playTime; //PLAY_TIME VARCHAR2(20)NOT NULL,
-	private String albumSell; //ALBUM_SELL NUMBER NOT NULL,
-	private Date releaseDate; //RELEASE_DATE DATE NOT NULL
+	private int albumSell; //ALBUM_SELL NUMBER NOT NULL,
+	private String releaseDate; //RELEASE_DATE DATE NOT NULL
 	public Music() {
 		super();
 	}
-	public Music(int musicNum, String musicName, String sigerName, String genreName, String playTime, String albumSell,
-			Date releaseDate) {
+	public Music(int musicNum, String musicName, String singerName, String genreName, String playTime, int albumSell,
+			String releaseDate) {
 		super();
 		this.musicNum = musicNum;
 		this.musicName = musicName;
-		this.sigerName = sigerName;
+		this.singerName = singerName;
 		this.genreName = genreName;
 		this.playTime = playTime;
 		this.albumSell = albumSell;
 		this.releaseDate = releaseDate;
 	}
-	public Music(String musicName, String sigerName, String genreName, String playTime, String albumSell,
-			Date releaseDate) {
+	public Music(String musicName, String singerName, String genreName, String playTime, int albumSell,
+			String releaseDate) {
 		super();
 		this.musicName = musicName;
-		this.sigerName = sigerName;
+		this.singerName = singerName;
 		this.genreName = genreName;
 		this.playTime = playTime;
 		this.albumSell = albumSell;
@@ -47,11 +47,11 @@ public class Music {
 	public void setMusicName(String musicName) {
 		this.musicName = musicName;
 	}
-	public String getSigerName() {
-		return sigerName;
+	public String getSingerName() {
+		return singerName;
 	}
-	public void setSigerName(String sigerName) {
-		this.sigerName = sigerName;
+	public void setSingerName(String singerName) {
+		this.singerName = singerName;
 	}
 	public String getGenreName() {
 		return genreName;
@@ -65,21 +65,21 @@ public class Music {
 	public void setPlayTime(String playTime) {
 		this.playTime = playTime;
 	}
-	public String getAlbumSell() {
+	public int getAlbumSell() {
 		return albumSell;
 	}
-	public void setAlbumSell(String albumSell) {
-		this.albumSell = albumSell;
+	public void setAlbumSell(int string) {
+		this.albumSell = string;
 	}
-	public Date getReleaseDate() {
+	public String getReleaseDate() {
 		return releaseDate;
 	}
-	public void setReleaseDate(Date releaseDate) {
+	public void setReleaseDate(String releaseDate) {
 		this.releaseDate = releaseDate;
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(albumSell, genreName, musicName, musicNum, playTime, releaseDate, sigerName);
+		return Objects.hash(albumSell, genreName, musicName, musicNum, playTime, releaseDate, singerName);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -93,11 +93,11 @@ public class Music {
 		return Objects.equals(albumSell, other.albumSell) && Objects.equals(genreName, other.genreName)
 				&& Objects.equals(musicName, other.musicName) && musicNum == other.musicNum
 				&& Objects.equals(playTime, other.playTime) && Objects.equals(releaseDate, other.releaseDate)
-				&& Objects.equals(sigerName, other.sigerName);
+				&& Objects.equals(singerName, other.singerName);
 	}
 	@Override
 	public String toString() {
-		return "Music [musicNum=" + musicNum + ", musicName=" + musicName + ", sigerName=" + sigerName + ", genreName="
+		return "Music [musicNum=" + musicNum + ", musicName=" + musicName + ", singerName=" + singerName + ", genreName="
 				+ genreName + ", playTime=" + playTime + ", albumSell=" + albumSell + ", releaseDate=" + releaseDate
 				+ "]";
 	}
