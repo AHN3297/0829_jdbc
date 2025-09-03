@@ -175,6 +175,7 @@ public class MemberDao {
 		return result;
 		
 	}
+	
 	public List<Member> findAll(){
 		//0)변수선언
 		Connection conn = null;

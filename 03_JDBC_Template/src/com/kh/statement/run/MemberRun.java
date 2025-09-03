@@ -1,5 +1,8 @@
 package com.kh.statement.run;
 
+import static com.kh.common.JDBCTemplate.registDriver;
+
+import com.kh.common.JDBCTemplate;
 import com.kh.statement.view.MemberView;
 
 public class MemberRun {
