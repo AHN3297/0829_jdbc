@@ -18,8 +18,8 @@ public class MusicDao {
 	private final String USERNAME = "AYS14";
 	private final String PASSWORD = "AYS141234";
 
-	public int plusMusic(Music music) {
-		Connection conn = null;
+	public int plusMusic(Connection conn,Music music) {
+		
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -101,7 +101,7 @@ public class MusicDao {
 		}
 		return result;
 	}
-	public List<Music> findAll(){
+	public List<Music> findAll(Connection conn2){
 		List<Music> musics = new ArrayList();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -171,8 +171,8 @@ public class MusicDao {
 		return musics;
 	}
 	
-	public List<Music> findByName(String name){
-		Connection conn = null;
+	public List<Music> findByName(Connection conn, String name){
+		
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		List<Music> musics = new ArrayList();
@@ -240,9 +240,9 @@ public class MusicDao {
 		return musics;
 	}
 	
-	public Music findBySinger(String singerName) {
+	public Music findBySinger(Connection conn, String singerName) {
 		Music music = null;
-		Connection conn = null;
+		
 		PreparedStatement pstmt =null;
 		ResultSet rset = null;
 		
@@ -311,9 +311,8 @@ public class MusicDao {
 		return music;
 	}
 	
-	public Music findByGenre(String genreName) {
+	public Music findByGenre(Connection conn, String genreName) {
 		Music genre = null;
-		Connection conn = null;
 		PreparedStatement pstmt =null;
 		ResultSet rset = null;
 		
