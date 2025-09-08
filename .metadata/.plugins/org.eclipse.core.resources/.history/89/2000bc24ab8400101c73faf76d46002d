@@ -1,8 +1,0 @@
-package com.aclass.practice.run;
-
-public class EmployeeRun {
-	public static void main(String[] args) {
-		
-	}
-
-}

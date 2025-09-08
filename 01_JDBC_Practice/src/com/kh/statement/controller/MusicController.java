@@ -39,7 +39,7 @@ public class MusicController {
 	}
 	public int update(String musicName, String singer, String newMusicName) {
 
-		MusicNameDTO pd = new MusicNameDTO(musicName, singer, newMusicName);
+		MusicNameDTO md = new MusicNameDTO(musicName, singer, newMusicName);
 		int result = new MusicService().update(pd);
 		return result;
 	}

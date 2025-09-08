@@ -6,7 +6,9 @@ import static com.kh.common.JDBCTemplate.getConnection;
 import java.sql.Connection;
 import java.util.List;
 
+import com.kh.statement.model.dao.MemberDao;
 import com.kh.statement.model.dao.MusicDao;
+import com.kh.statement.model.dto.MusicNameDTO;
 import com.kh.statement.model.vo.Music;
 
 
@@ -59,7 +61,19 @@ public class MusicService {
 	close(conn);
 	return music;
 	
-}
+	}
+    public int update(MusicNameDTO md) {
+    	if(md.getNewMusicName().length() < 0) {
+			return 0;
+		}
+    	Music music = new MusicDao().update(conn, md.getSinger());
+    	
+    	if(music == null) {
+    		return = 0;
+    			
+    	}
+    	
+    }
 	
 
 }
