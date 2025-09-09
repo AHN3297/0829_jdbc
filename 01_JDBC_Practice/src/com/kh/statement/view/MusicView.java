@@ -188,9 +188,9 @@ public class MusicView {
 	int result = mc.update(musicName, singer, newMusicName);
 	
 	 if(result >0) {
-		 System.out.println("비밀번호변경에 성공 ㅊㅊ");
+		 System.out.println("노래변경에 성공 ㅊㅊ");
 	 }else {
-		 System.out.println("비밀번호변경에 실패");
+		 System.out.println("노래번호변경에 실패");
 	 }
 	}
 	
